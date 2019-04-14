@@ -10,12 +10,18 @@ my $fasta_in       = shift || "";
 my $fastq_in       = shift || "";
 	 
 
-print STDERR "\nperl rnaedit_disc.pl 1234 /tmp/o40 sample_files/sample.fas sample_files/SRR1004791_1_6w.fq,sample_files/SRR1004791_2_6w.fq\n";
+
+print STDERR "
+Copyright (C) 2019 Linchun Shi and Chang Liu
+           Institute of Medicinal Plant Development
+           Chinese Academy of Medical Science
+Freely distributed under the GNU General Public License (GPLv3)
+";
+
+print STDERR "\nExample usage: perl rnaedit_disc.pl 1234 /tmp/o40 sample_files/sample.fas sample_files/SRR1004791_1_6w.fq,sample_files/SRR1004791_2_6w.fq\n";
 print STDERR "$project_id\t$fasta_in\t$fastq_in\n";
 die "\nUsage: perl $0 project_id working_dir file_fasta file_fastq1,file_fastq2\n\n" unless ($project_id && -e $fasta_in);
-#die "\nUsage: perl $0 working_dir project_id file_fasta file_fastq1,file_fastq2\n\n" unless ($project_id && -e $fasta_in && -e $fastq_in);
 
-#my $working_dir = "/tmp/dir_".$project_id;
 $working_dir =~ s/\/+$//;
 my $index    = $working_dir."/".$project_id;
 `mkdir $working_dir` unless (-e $working_dir);
@@ -73,9 +79,7 @@ $cmd = "$samtools view -f 0x10 $tophat_out/accepted_hits.bam | $samtools view -b
 print STDERR "\n$cmd\n\n";
 `$cmd` unless (-e $bam_reverse_sorted);
 
-#`samtools view $tophat_out/accepted_hits.bam | gawk '(! and(16, $2))' | samtools vie2yyw -bS -T $fasta - | samtools sort - $bam_forward_sorted`;
-#`samtools view $tophat_out/accepted_hits.bam | gawk '(and(16, $2))' | samtools view -bS -T $fasta - | samtools sort - $bam_reverse_sorted`;
-###3用REDItoolDenovo.py 预测RNA编辑位点。
+###3 use REDItoolDenovo.py to predict RNA editing sites
 $bam_forward_sorted = $bam_forward_sorted.".bam";
 $bam_reverse_sorted = $bam_reverse_sorted.".bam";
 my $out_f = $working_dir."/forward_out.txt";
