@@ -27,8 +27,8 @@ Copyright (C) 2019 Linchun Shi and Chang Liu
   		Chinese Academy of Medical Science
 Freely distributed under the GNU General Public License (GPLv3)
 """
-	print "Usage: python2.7 -q queryFile -t queryType[fasta|gb] -l leftFastqFile -2 rightFastqFile -p outPrefix -m max_depth -o outdir\n"
-	print "Example: python2.7 -q NC_000932.gb -t gb -l reads_1.fq -2 reads_2.fq -p Arth -m 100 -o outTmpDir\n"
+	print "Usage: python2.7 -q queryFile -t queryType[fasta|gb] -l leftFastqFile -r rightFastqFile -p outPrefix -m max_depth -o outdir\n"
+	print "Example: python2.7 -q NC_000932.gb -t gb -l reads_1.fq -r reads_2.fq -p Arth -m 100 -o outTmpDir\n"
 	print "-h, --help	print help"
 	print "-v, --version	version"
 	print "-q, --query 	query file"
