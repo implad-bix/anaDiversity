@@ -32,7 +32,7 @@ biopython 1.68 or later
 ============
 Usage
 ============
-python2.7 -q queryFile -t queryType[fasta|gb] -l leftFastqFile -r rightFastqFile -p outPrefix -m max_depth -o outdir
+python2.7 prea.py -q queryFile -t queryType[fasta|gb] -l leftFastqFile -r rightFastqFile -p outPrefix -m max_depth -o outdir
 
 ============
 Main arguments
@@ -54,14 +54,14 @@ Typical usage
 ============
 1.	Select the reads for a particular set of genes.
 The target gene should be provided in FASTA format, the sample command line is as follow:
->python2.7 –q NC_000932.ndhB.fasta –t fasta –l reads_1.fq –r reads_2.fq –p Arth_ndhB -o outTmpDir –m 100 
+>python2.7 prea.py –q NC_000932.ndhB.fasta –t fasta –l reads_1.fq –r reads_2.fq –p Arth_ndhB -o outTmpDir –m 100 
 
 The result files are: “path/outTmpDir/Arth_ndhB_top100_1.fq” and “ path/outTmpDir/Arth_ndhB_top100_2.fq”
 
 2.	For all genes from a full-length plastome sequence
 The annotation information should be provided in GenBank format. PREA.py will automatically extract the sequences of protein coding genes and CDS. The sample command line is as follow:
 
->python2.7 -q NC_000932.gb -t gb -l reads_1.fq -r reads_2.fq -p Arth_gene8cds -m 100 -o outTmpDir
+>python2.7 prea.py -q NC_000932.gb -t gb -l reads_1.fq -r reads_2.fq -p Arth_gene8cds -m 100 -o outTmpDir
 
 The result files are: “path/outTmpDir/Arth_gene8cds_top100_1.fq” and “ path/outTmpDir/Arth_gene8cds_top100_2.fq”
 
